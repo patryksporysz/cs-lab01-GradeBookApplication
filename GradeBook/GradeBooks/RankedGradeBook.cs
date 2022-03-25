@@ -7,7 +7,7 @@ namespace GradeBook.GradeBooks
 {
     public class RankedGradeBook : BaseGradeBook
     {
-        public RankedGradeBook(string name) : base(name)
+        public RankedGradeBook(string name, bool isWeighted) : base(name, isWeighted)
         {
             Type = Enums.GradeBookType.Ranked;
         }
@@ -36,20 +36,24 @@ namespace GradeBook.GradeBooks
         {
             if (Students.Count < 5)
             {
-                Console.WriteLine("You need 5 students at least with grades");
+                Console.WriteLine("Ranked grading requires at least 5 students");
             }
             else
             {
                 base.CalculateStatistics();
             }
         }
+
+
+
+
         public override void CalculateStudentStatistics(string name)
         {
             if (Students.Count < 5)
             {
-                Console.WriteLine("You need 5 students at least with grades");
+                Console.WriteLine("Ranked grading requires at least 5 students");
             }
-            else if (Students.Count > 5)
+            else if (Students.Count > 4)
             {
                 base.CalculateStudentStatistics(name);
             }
