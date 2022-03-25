@@ -32,7 +32,28 @@ namespace GradeBook.GradeBooks
             return 'F';
 
         }
-
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("You need 5 students at least with grades");
+            }
+            else
+            {
+                base.CalculateStatistics();
+            }
+        }
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("You need 5 students at least with grades");
+            }
+            else if (Students.Count > 5)
+            {
+                base.CalculateStudentStatistics(name);
+            }
+        }
 
     }
 
